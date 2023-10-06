@@ -7,5 +7,7 @@ public class Attractie
     public DateTime bouwJaar {get;set;}
     public int engheid {get;set;}
 
+    public string? LikedAttractions { get;set;}
+
     public List<GebruikerMetWachwoord> UserLikes = new List<GebruikerMetWachwoord>();
 }

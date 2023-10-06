@@ -1,6 +1,7 @@
 ﻿namespace PretPark_Api_Opdracht.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using PretPark_Api_Opdracht.Models;
 public class PretparkContext : IdentityDbContext
 {
     public PretparkContext (DbContextOptions<PretparkContext> options): base(options){}

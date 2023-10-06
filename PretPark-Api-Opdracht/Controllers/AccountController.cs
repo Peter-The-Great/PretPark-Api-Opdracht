@@ -5,7 +5,15 @@ using System.Text;
 using System.Security.Claims;
 using System.IdentityModel.Tokens.Jwt;
 using System.ComponentModel.DataAnnotations;
+using PretPark_Api_Opdracht.Models;
 
+public class GebruikerMetWachwoord : IdentityUser
+{
+    public List<Attractie> LikedAttractions { get; set; } = new List<Attractie>();
+
+    public required string Password { get; set; }
+
+}
 
 [Route("api/[controller]")]
 [ApiController]
@@ -24,8 +32,6 @@ public class AccountController : ControllerBase
         _RoleManager = roleManager;
 
     }
-
-
 
     [HttpPost]
     [Route("registreer")]
@@ -62,4 +68,13 @@ public class AccountController : ControllerBase
 
         return Unauthorized();
     }
+}
+
+public class GebruikerLogin
+{
+    [Required(ErrorMessage = "Username is required")]
+    public string? UserName { get; init; }
+
+    [Required(ErrorMessage = "Password is required")]
+    public string? Password { get; init; }
 }
